@@ -22,7 +22,7 @@ __version__ = ELECTRUM_VERSION
 import pkgutil
 import importlib
 import sys
-electrum_nmc = importlib.import_module('electrum_nmc')
+electrum_nmc = importlib.import_module('electrum_ptc')
 sys.modules['electrum'] = electrum_nmc
 for _, name, _ in pkgutil.iter_modules(['electrum_nmc']):
     try:
@@ -30,4 +30,3 @@ for _, name, _ in pkgutil.iter_modules(['electrum_nmc']):
         sys.modules['electrum' + '.' + name] = m
     except:
         pass
-
