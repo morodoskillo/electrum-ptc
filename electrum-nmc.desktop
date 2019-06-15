@@ -1,22 +1,22 @@
 # If you want Electrum to appear in a Linux app launcher ("start menu"), install this by doing:
-# sudo desktop-file-install electrum-nmc.desktop
+# sudo desktop-file-install electrum-ptc.desktop
 
 [Desktop Entry]
-Comment=Lightweight Namecoin Client
-Exec=sh -c "PATH=\"\\$HOME/.local/bin:\\$PATH\"; electrum-nmc %u"
-GenericName[en_US]=Namecoin Wallet
-GenericName=Namecoin Wallet
-Icon=electrum_nmc
-Name[en_US]=Electrum Namecoin Wallet
-Name=Electrum Namecoin Wallet
+Comment=Lightweight Pesetacoin Client
+Exec=sh -c "PATH=\"\\$HOME/.local/bin:\\$PATH\"; electrum-ptc %u"
+GenericName[en_US]=Pesetacoin Wallet
+GenericName=Pesetacoin Wallet
+Icon=electrum_ptc
+Name[en_US]=Electrum Pesetacoin Wallet
+Name=Electrum Pesetacoin Wallet
 Categories=Finance;Network;
 StartupNotify=true
-StartupWMClass=electrum-nmc
+StartupWMClass=electrum-ptc
 Terminal=false
 Type=Application
-MimeType=x-scheme-handler/namecoin;
+MimeType=x-scheme-handler/pesetacoin;
 Actions=Testnet;
 
 [Desktop Action Testnet]
-Exec=sh -c "PATH=\"\\$HOME/.local/bin:\\$PATH\"; electrum-nmc --testnet %u"
+Exec=sh -c "PATH=\"\\$HOME/.local/bin:\\$PATH\"; electrum-ptc --testnet %u"
 Name=Testnet mode
