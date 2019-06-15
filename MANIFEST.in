@@ -1,15 +1,15 @@
 include LICENCE RELEASE-NOTES AUTHORS
 include README.rst
-include electrum-nmc.desktop
+include electrum-ptc.desktop
 include *.py
-include run_electrum_nmc
+include run_electrum_ptc
 include contrib/requirements/requirements.txt
 include contrib/requirements/requirements-hw.txt
 recursive-include packages *.py
 recursive-include packages cacert.pem
 
-graft electrum_nmc
-prune electrum_nmc/tests
+graft electrum_ptc
+prune electrum_ptc/tests
 
 global-exclude __pycache__
 global-exclude *.py[co~]
