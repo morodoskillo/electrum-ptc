@@ -17,7 +17,7 @@ _min_python_version_tuple = tuple(map(int, (MIN_PYTHON_VERSION.split("."))))
 
 
 if sys.version_info[:3] < _min_python_version_tuple:
-    sys.exit("Error: Electrum-NMC requires Python version >= %s..." % MIN_PYTHON_VERSION)
+    sys.exit("Error: Electrum-PTC requires Python version >= %s..." % MIN_PYTHON_VERSION)
 
 with open('contrib/requirements/requirements.txt') as f:
     requirements = f.read().splitlines()
@@ -26,7 +26,7 @@ with open('contrib/requirements/requirements-hw.txt') as f:
     requirements_hw = f.read().splitlines()
 
 # load version.py; needlessly complicated alternative to "imp.load_source":
-version_spec = importlib.util.spec_from_file_location('version', 'electrum_nmc/version.py')
+version_spec = importlib.util.spec_from_file_location('version', 'electrum_ptc/version.py')
 version_module = version = importlib.util.module_from_spec(version_spec)
 version_spec.loader.exec_module(version_module)
 
@@ -46,8 +46,8 @@ if platform.system() in ['Linux', 'FreeBSD', 'DragonFly']:
         else:
             usr_share = os.path.expanduser('~/.local/share')
     data_files += [
-        (os.path.join(usr_share, 'applications/'), ['electrum-nmc.desktop']),
-        (os.path.join(usr_share, icons_dirname), ['electrum_nmc/gui/icons/electrum_nmc.png']),
+        (os.path.join(usr_share, 'applications/'), ['electrum-ptc.desktop']),
+        (os.path.join(usr_share, icons_dirname), ['electrum_ptc/gui/icons/electrum_ptc.png']),
     ]
 
 extras_require = {
@@ -59,23 +59,23 @@ extras_require['full'] = [pkg for sublist in list(extras_require.values()) for p
 
 
 setup(
-    name="Electrum-NMC",
+    name="Electrum-PTC",
     version=version.ELECTRUM_VERSION,
     python_requires='>={}'.format(MIN_PYTHON_VERSION),
     install_requires=requirements,
     extras_require=extras_require,
     packages=[
-        'electrum_nmc',
-        'electrum_nmc.gui',
-        'electrum_nmc.gui.qt',
-        'electrum_nmc.plugins',
-    ] + [('electrum_nmc.plugins.'+pkg) for pkg in find_packages('electrum_nmc/plugins')],
+        'electrum_ptc',
+        'electrum_ptc.gui',
+        'electrum_ptc.gui.qt',
+        'electrum_ptc.plugins',
+    ] + [('electrum_ptc.plugins.'+pkg) for pkg in find_packages('electrum_ptc/plugins')],
     package_dir={
-        'electrum_nmc': 'electrum_nmc',
+        'electrum_ptc': 'electrum_ptc',
     },
     package_data={
         '': ['*.txt', '*.json', '*.ttf', '*.otf'],
-        'electrum_nmc': [
+        'electrum_ptc': [
             'wordlist/*.txt',
             'locale/*/LC_MESSAGES/electrum.mo',
         ],
@@ -83,12 +83,12 @@ setup(
             'icons/*',
         ],
     },
-    scripts=['electrum_nmc/electrum-nmc'],
+    scripts=['electrum_ptc/electrum-ptc'],
     data_files=data_files,
-    description="Lightweight Namecoin Wallet",
-    author="The Namecoin developers; based on Electrum by Thomas Voegtlin and Electrum-DOGE by The Electrum-DOGE contributors",
-    author_email="jeremy@namecoin.org",
+    description="Lightweight Pesetacoin Wallet",
+    author="The Pesetacoin developers; based on Electrum by Thomas Voegtlin and Electrum-DOGE by The Electrum-DOGE contributors",
+    author_email="oscar.javier.navarro.garcia@gmail.com",
     license="GNU GPLv3+ for Electrum-DOGE components; MIT Licence for all other components",
-    url="https://www.namecoin.org/",
-    long_description="""Lightweight Namecoin Wallet""",
+    url="http://electrum.pesetacoin.info/",
+    long_description="""Lightweight Pesetacoin Wallet""",
 )
