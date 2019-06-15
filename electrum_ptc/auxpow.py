@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# Electrum-NMC - lightweight Namecoin client
-# Copyright (C) 2018 The Namecoin developers
+# Electrum-NMC - lightweight Pesetacoin client
+# Copyright (C) 2018 The Pesetacoin developers
 #
 # License for all components not part of Electrum-DOGE:
 #
@@ -119,7 +119,7 @@ def deserialize_auxpow_header(base_header, s, expect_trailing_data=False, start_
     # Deserialize them and save the trailing data.
     auxpow_header['coinbase_merkle_branch'], auxpow_header['coinbase_merkle_index'], start_position = deserialize_merkle_branch(s, start_position=start_position)
     auxpow_header['chain_merkle_branch'], auxpow_header['chain_merkle_index'], start_position = deserialize_merkle_branch(s, start_position=start_position)
-    
+
     # Finally there's the parent header.  Deserialize it, along with any
     # trailing data if requested.
     if expect_trailing_data:
