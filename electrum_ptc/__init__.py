@@ -19,14 +19,14 @@ __version__ = ELECTRUM_VERSION
 # This trick allows accessing electrum-ptc from import statements as electrum,
 # so we can avoid merge conflicts while also avoiding namespace collisions with
 # upstream.
-import pkgutil
-import importlib
-import sys
-electrum-ptc = importlib.import_module('electrum_ptc')
-sys.modules['electrum'] = electrum-ptc
-for _, name, _ in pkgutil.iter_modules(['electrum-ptc']):
-    try:
-        m = importlib.import_module('electrum-ptc' + '.' + name)
-        sys.modules['electrum' + '.' + name] = m
-    except:
-        pass
+#import pkgutil
+#import importlib
+#import sys
+#electrum-ptc = importlib.import_module('electrum_ptc')
+#sys.modules['electrum'] = electrum-ptc
+#for _, name, _ in pkgutil.iter_modules(['electrum-ptc']):
+#    try:
+#        m = importlib.import_module('electrum-ptc' + '.' + name)
+#        sys.modules['electrum' + '.' + name] = m
+#    except:
+#        pass
