@@ -18,7 +18,7 @@ set -e
 mkdir -p tmp
 cd tmp
 
-pushd $WINEPREFIX/drive_c/electrum-nmc
+pushd $WINEPREFIX/drive_c/electrum-ptc
 
 # Load electrum-locale for this release
 git submodule init
@@ -33,7 +33,7 @@ if ! which msgfmt > /dev/null 2>&1; then
     exit 1
 fi
 for i in ./locale/*; do
-    dir=$WINEPREFIX/drive_c/electrum-nmc/electrum_nmc/$i/LC_MESSAGES
+    dir=$WINEPREFIX/drive_c/electrum-ptc/electrum_ptc/$i/LC_MESSAGES
     mkdir -p $dir
     msgfmt --output-file=$dir/electrum.mo $i/electrum.po || true
 done
@@ -42,14 +42,14 @@ popd
 find -exec touch -d '2000-11-11T11:11:11+00:00' {} +
 popd
 
-cp $WINEPREFIX/drive_c/electrum-nmc/LICENCE .
+cp $WINEPREFIX/drive_c/electrum-ptc/LICENCE .
 
 # Install frozen dependencies
 $PYTHON -m pip install -r ../../deterministic-build/requirements.txt
 
 $PYTHON -m pip install -r ../../deterministic-build/requirements-hw.txt
 
-pushd $WINEPREFIX/drive_c/electrum-nmc
+pushd $WINEPREFIX/drive_c/electrum-ptc
 $PYTHON -m pip install .
 popd
 

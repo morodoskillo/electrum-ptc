@@ -12,7 +12,7 @@ else:
 
 PYHOME = 'c:/python3'
 
-home = 'C:\\electrum-nmc\\'
+home = 'C:\\electrum-ptc\\'
 
 # see https://github.com/pyinstaller/pyinstaller/issues/2005
 hiddenimports = []
@@ -30,7 +30,7 @@ hiddenimports.remove('safetlib.qt.pinmatrix')
 
 # Work around import aliasing for Namecoin
 # Blacklist kivy since it's not needed; plugins probably aren't needed either.
-hiddenimports += [ e for e in collect_submodules('electrum_nmc') if ('.gui.kivy' not in e and '.plugins.' not in e) ]
+hiddenimports += [ e for e in collect_submodules('electrum_ptc') if ('.gui.kivy' not in e and '.plugins.' not in e) ]
 
 
 # Add libusb binary
@@ -42,12 +42,12 @@ binaries += [b for b in collect_dynamic_libs('PyQt5') if 'qwindowsvista' in b[0]
 binaries += [('C:/tmp/libsecp256k1.dll', '.')]
 
 datas = [
-    (home+'electrum_nmc/*.json', 'electrum_nmc'),
-    (home+'electrum_nmc/wordlist/english.txt', 'electrum_nmc/wordlist'),
-    (home+'electrum_nmc/locale', 'electrum_nmc/locale'),
-    (home+'electrum_nmc/plugins', 'electrum_nmc/plugins'),
+    (home+'electrum_ptc/*.json', 'electrum_ptc'),
+    (home+'electrum_ptc/wordlist/english.txt', 'electrum_ptc/wordlist'),
+    (home+'electrum_ptc/locale', 'electrum_ptc/locale'),
+    (home+'electrum_ptc/plugins', 'electrum_ptc/plugins'),
     ('C:\\Program Files (x86)\\ZBar\\bin\\', '.'),
-    (home+'electrum_nmc/gui/icons', 'electrum_nmc/gui/icons'),
+    (home+'electrum_ptc/gui/icons', 'electrum_ptc/gui/icons'),
 ]
 datas += collect_data_files('trezorlib')
 datas += collect_data_files('safetlib')
@@ -56,23 +56,23 @@ datas += collect_data_files('keepkeylib')
 datas += collect_data_files('ckcc')
 
 # We don't put these files in to actually include them in the script but to make the Analysis method scan them for imports
-a = Analysis([home+'run_electrum_nmc',
-              home+'electrum_nmc/gui/qt/main_window.py',
-              home+'electrum_nmc/gui/text.py',
-              home+'electrum_nmc/util.py',
-              home+'electrum_nmc/wallet.py',
-              home+'electrum_nmc/simple_config.py',
-              home+'electrum_nmc/bitcoin.py',
-              home+'electrum_nmc/dnssec.py',
-              home+'electrum_nmc/commands.py',
-              home+'electrum_nmc/plugins/cosigner_pool/qt.py',
-              home+'electrum_nmc/plugins/email_requests/qt.py',
-              home+'electrum_nmc/plugins/trezor/qt.py',
-              home+'electrum_nmc/plugins/safe_t/client.py',
-              home+'electrum_nmc/plugins/safe_t/qt.py',
-              home+'electrum_nmc/plugins/keepkey/qt.py',
-              home+'electrum_nmc/plugins/ledger/qt.py',
-              home+'electrum_nmc/plugins/coldcard/qt.py',
+a = Analysis([home+'run_electrum_ptc',
+              home+'electrum_ptc/gui/qt/main_window.py',
+              home+'electrum_ptc/gui/text.py',
+              home+'electrum_ptc/util.py',
+              home+'electrum_ptc/wallet.py',
+              home+'electrum_ptc/simple_config.py',
+              home+'electrum_ptc/bitcoin.py',
+              home+'electrum_ptc/dnssec.py',
+              home+'electrum_ptc/commands.py',
+              home+'electrum_ptc/plugins/cosigner_pool/qt.py',
+              home+'electrum_ptc/plugins/email_requests/qt.py',
+              home+'electrum_ptc/plugins/trezor/qt.py',
+              home+'electrum_ptc/plugins/safe_t/client.py',
+              home+'electrum_ptc/plugins/safe_t/qt.py',
+              home+'electrum_ptc/plugins/keepkey/qt.py',
+              home+'electrum_ptc/plugins/ledger/qt.py',
+              home+'electrum_ptc/plugins/coldcard/qt.py',
               #home+'packages/requests/utils.py'
               ],
              binaries=binaries,
@@ -119,12 +119,12 @@ exe_standalone = EXE(
     pyz,
     a.scripts,
     a.binaries,
-    a.datas, 
+    a.datas,
     name=os.path.join('build\\pyi.win32\\electrum-nmc', cmdline_name + ".exe"),
     debug=False,
     strip=None,
     upx=False,
-    icon=home+'electrum_nmc/gui/icons/electrum_nmc.ico',
+    icon=home+'electrum_ptc/gui/icons/electrum_ptc.ico',
     console=False)
     # console=True makes an annoying black box pop up, but it does make Electrum output command line commands, with this turned off no output will be given but commands can still be used
 
@@ -137,7 +137,7 @@ exe_portable = EXE(
     debug=False,
     strip=None,
     upx=False,
-    icon=home+'electrum_nmc/gui/icons/electrum_nmc.ico',
+    icon=home+'electrum_ptc/gui/icons/electrum_ptc.ico',
     console=False)
 
 #####
@@ -151,7 +151,7 @@ exe_dependent = EXE(
     debug=False,
     strip=None,
     upx=False,
-    icon=home+'electrum_nmc/gui/icons/electrum_nmc.ico',
+    icon=home+'electrum_ptc/gui/icons/electrum_ptc.ico',
     console=False)
 
 coll = COLLECT(
@@ -162,6 +162,6 @@ coll = COLLECT(
     strip=None,
     upx=True,
     debug=False,
-    icon=home+'electrum_nmc/gui/icons/electrum_nmc.ico',
+    icon=home+'electrum_ptc/gui/icons/electrum_ptc.ico',
     console=False,
     name=os.path.join('dist', 'electrum-nmc'))
