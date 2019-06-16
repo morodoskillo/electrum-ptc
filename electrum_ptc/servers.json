@@ -1,18 +1,8 @@
 {
-    "electrum-nmc.le-space.de": {
+    "vmi268686.contaboserver.net": {
         "pruning": "-",
+        "t": "50001",
         "s": "50002",
-        "version": "1.4"
-    },
-    "nmc.bitcoins.sk": {
-        "pruning": "-",
-        "s": "50002",
-        "version": "1.4"
-    },
-    "ulrichard.ch": {
-        "pruning": "-",
-        "s": "50006",
-        "t": "50005",
-        "version": "1.4"
+        "version": "1.12"
     }
 }

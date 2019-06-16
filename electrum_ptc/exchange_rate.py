@@ -21,7 +21,7 @@ from .simple_config import SimpleConfig
 from .logging import Logger
 
 
-DEFAULT_ENABLED = False
+DEFAULT_ENABLED = True
 DEFAULT_CURRENCY = "EUR"
 DEFAULT_EXCHANGE = "CoinGecko"  # default exchange should ideally provide historical rates
 

@@ -65,9 +65,9 @@ def inv_dict(d):
 ca_path = certifi.where()
 
 
-base_units = {'NMC':8, 'mNMC':5, 'uNMC':2, 'swartz':0}
+base_units = {'PTC':8, 'mPTC':5, 'uPTC':2, 'swartz':0}
 base_units_inverse = inv_dict(base_units)
-base_units_list = ['NMC', 'mNMC', 'uNMC', 'swartz']  # list(dict) does not guarantee order
+base_units_list = ['PTC', 'mPTC', 'uPTC', 'swartz']  # list(dict) does not guarantee order
 
 DECIMAL_POINT_DEFAULT = 5  # mBTC
 
