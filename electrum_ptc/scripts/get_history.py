@@ -3,9 +3,9 @@
 import sys
 import asyncio
 
-from electrum_nmc import bitcoin
-from electrum_nmc.network import Network
-from electrum_nmc.util import json_encode, print_msg, create_and_start_event_loop, log_exceptions
+from electrum_ptc import bitcoin
+from electrum_ptc.network import Network
+from electrum_ptc.util import json_encode, print_msg, create_and_start_event_loop, log_exceptions
 
 
 try:

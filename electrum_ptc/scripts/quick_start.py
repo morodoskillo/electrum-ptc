@@ -1,11 +1,11 @@
 import os
 
-from electrum_nmc.simple_config import SimpleConfig
-from electrum_nmc import constants
-from electrum_nmc.daemon import Daemon
-from electrum_nmc.storage import WalletStorage
-from electrum_nmc.wallet import Wallet, create_new_wallet
-from electrum_nmc.commands import Commands
+from electrum_ptc.simple_config import SimpleConfig
+from electrum_ptc import constants
+from electrum_ptc.daemon import Daemon
+from electrum_ptc.storage import WalletStorage
+from electrum_ptc.wallet import Wallet, create_new_wallet
+from electrum_ptc.commands import Commands
 
 
 config = SimpleConfig({"testnet": True})  # to use ~/.electrum-nmc/testnet as datadir

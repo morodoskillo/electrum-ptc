@@ -4,8 +4,8 @@ import asyncio
 from statistics import median
 from numbers import Number
 
-from electrum_nmc.network import filter_protocol, Network
-from electrum_nmc.util import create_and_start_event_loop, log_exceptions
+from electrum_ptc.network import filter_protocol, Network
+from electrum_ptc.util import create_and_start_event_loop, log_exceptions
 
 
 loop, stopping_fut, loop_thread = create_and_start_event_loop()

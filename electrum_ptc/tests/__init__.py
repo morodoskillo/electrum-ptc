@@ -1,17 +1,17 @@
 import unittest
 import threading
 
-# This trick allows accessing electrum_nmc from import statements as electrum,
+# This trick allows accessing electrum_ptc from import statements as electrum,
 # so we can avoid merge conflicts while also avoiding namespace collisions with
 # upstream.
 import pkgutil
 import importlib
 import sys
-electrum_nmc = importlib.import_module('electrum_nmc')
-sys.modules['electrum'] = electrum_nmc
-for _, name, _ in pkgutil.iter_modules(['electrum_nmc']):
+electrum_ptc = importlib.import_module('electrum_ptc')
+sys.modules['electrum'] = electrum_ptc
+for _, name, _ in pkgutil.iter_modules(['electrum_ptc']):
     try:
-        m = importlib.import_module('electrum_nmc' + '.' + name)
+        m = importlib.import_module('electrum_ptc' + '.' + name)
         sys.modules['electrum' + '.' + name] = m
     except:
         pass
