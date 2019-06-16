@@ -6,9 +6,9 @@
 ;--------------------------------
 ;Variables
 
-  !define PRODUCT_NAME "Electrum-NMC"
-  !define PRODUCT_WEB_SITE "https://www.namecoin.org/"
-  !define PRODUCT_PUBLISHER "Namecoin Project"
+  !define PRODUCT_NAME "Electrum-PTC"
+  !define PRODUCT_WEB_SITE "http://electrum.pesetacoin.info"
+  !define PRODUCT_PUBLISHER "Pesetacoin Project"
   !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 
 ;--------------------------------
@@ -16,7 +16,7 @@
 
   ;Name and file
   Name "${PRODUCT_NAME}"
-  OutFile "dist/electrum-nmc-setup.exe"
+  OutFile "dist/electrum-ptc-setup.exe"
 
   ;Default installation folder
   InstallDir "$PROGRAMFILES\${PRODUCT_NAME}"
@@ -72,7 +72,7 @@
   !define MUI_ABORTWARNING
   !define MUI_ABORTWARNING_TEXT "Are you sure you wish to abort the installation of ${PRODUCT_NAME}?"
 
-  !define MUI_ICON "c:\electrum-nmc\electrum_ptc\gui\icons\electrum_ptc.ico"
+  !define MUI_ICON "c:\electrum-ptc\electrum_ptc\gui\icons\electrum_ptc.ico"
 
 ;--------------------------------
 ;Pages
@@ -110,8 +110,8 @@ Section
   Delete "$SMPROGRAMS\${PRODUCT_NAME}\*.*"
 
   ;Files to pack into the installer
-  File /r "dist\electrum-nmc\*.*"
-  File "c:\electrum-nmc\electrum_ptc\gui\icons\electrum_ptc.ico"
+  File /r "dist\electrum-ptc\*.*"
+  File "c:\electrum-ptc\electrum_ptc\gui\icons\electrum_ptc.ico"
 
   ;Store installation folder
   WriteRegStr HKCU "Software\${PRODUCT_NAME}" "" $INSTDIR
@@ -122,21 +122,21 @@ Section
 
   ;Create desktop shortcut
   DetailPrint "Creating desktop shortcut..."
-  CreateShortCut "$DESKTOP\${PRODUCT_NAME}.lnk" "$INSTDIR\electrum-nmc-${PRODUCT_VERSION}.exe" ""
+  CreateShortCut "$DESKTOP\${PRODUCT_NAME}.lnk" "$INSTDIR\electrum-ptc-${PRODUCT_VERSION}.exe" ""
 
   ;Create start-menu items
   DetailPrint "Creating start-menu items..."
   CreateDirectory "$SMPROGRAMS\${PRODUCT_NAME}"
   CreateShortCut "$SMPROGRAMS\${PRODUCT_NAME}\Uninstall.lnk" "$INSTDIR\Uninstall.exe" "" "$INSTDIR\Uninstall.exe" 0
-  CreateShortCut "$SMPROGRAMS\${PRODUCT_NAME}\${PRODUCT_NAME}.lnk" "$INSTDIR\electrum-nmc-${PRODUCT_VERSION}.exe" "" "$INSTDIR\electrum-nmc-${PRODUCT_VERSION}.exe" 0
-  CreateShortCut "$SMPROGRAMS\${PRODUCT_NAME}\${PRODUCT_NAME} Testnet.lnk" "$INSTDIR\electrum-nmc-${PRODUCT_VERSION}.exe" "--testnet" "$INSTDIR\electrum-nmc-${PRODUCT_VERSION}.exe" 0
+  CreateShortCut "$SMPROGRAMS\${PRODUCT_NAME}\${PRODUCT_NAME}.lnk" "$INSTDIR\electrum-ptc-${PRODUCT_VERSION}.exe" "" "$INSTDIR\electrum-ptc-${PRODUCT_VERSION}.exe" 0
+  CreateShortCut "$SMPROGRAMS\${PRODUCT_NAME}\${PRODUCT_NAME} Testnet.lnk" "$INSTDIR\electrum-ptc-${PRODUCT_VERSION}.exe" "--testnet" "$INSTDIR\electrum-ptc-${PRODUCT_VERSION}.exe" 0
 
 
   ;Links bitcoin: URI's to Electrum
   WriteRegStr HKCU "Software\Classes\namecoin" "" "URL:namecoin Protocol"
   WriteRegStr HKCU "Software\Classes\namecoin" "URL Protocol" ""
   WriteRegStr HKCU "Software\Classes\namecoin" "DefaultIcon" "$\"$INSTDIR\electrum_ptc.ico, 0$\""
-  WriteRegStr HKCU "Software\Classes\namecoin\shell\open\command" "" "$\"$INSTDIR\electrum-nmc-${PRODUCT_VERSION}.exe$\" $\"%1$\""
+  WriteRegStr HKCU "Software\Classes\namecoin\shell\open\command" "" "$\"$INSTDIR\electrum-ptc-${PRODUCT_VERSION}.exe$\" $\"%1$\""
 
   ;Adds an uninstaller possibility to Windows Uninstall or change a program section
   WriteRegStr HKCU "${PRODUCT_UNINST_KEY}" "DisplayName" "$(^Name)"
