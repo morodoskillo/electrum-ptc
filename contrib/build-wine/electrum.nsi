@@ -110,7 +110,6 @@ Section
   Delete "$SMPROGRAMS\${PRODUCT_NAME}\*.*"
 
   ;Files to pack into the installer
-  File /r "dist\electrum-ptc\*.*"
   File "c:\electrum-ptc\electrum_ptc\gui\icons\electrum_ptc.ico"
 
   ;Store installation folder
