@@ -6,7 +6,7 @@ PROJECT_ROOT="$(dirname "$(readlink -e "$0")")/../../.."
 CONTRIB="$PROJECT_ROOT/contrib"
 DISTDIR="$PROJECT_ROOT/dist"
 BUILDDIR="$CONTRIB/build-linux/appimage/build/appimage"
-APPDIR="$BUILDDIR/electrum-nmc.AppDir"
+APPDIR="$BUILDDIR/electrum-ptc.AppDir"
 CACHEDIR="$CONTRIB/build-linux/appimage/.cache/appimage"
 
 # pinned versions
@@ -16,7 +16,7 @@ LIBSECP_VERSION="b408c6a8b287003d1ade5709e6f7bc3c7f1d5be7"
 
 
 VERSION=`git describe --tags --dirty --always`
-APPIMAGE="$DISTDIR/electrum-nmc-$VERSION-x86_64.AppImage"
+APPIMAGE="$DISTDIR/electrum-ptc-$VERSION-x86_64.AppImage"
 
 rm -rf "$BUILDDIR"
 mkdir -p "$APPDIR" "$CACHEDIR" "$DISTDIR"
@@ -101,7 +101,7 @@ info "preparing electrum-locale."
         exit 1
     fi
     for i in ./locale/*; do
-        dir="$PROJECT_ROOT/electrum_nmc/$i/LC_MESSAGES"
+        dir="$PROJECT_ROOT/electrum_ptc/$i/LC_MESSAGES"
         mkdir -p $dir
         msgfmt --output-file="$dir/electrum.mo" "$i/electrum.po" || true
     done
@@ -109,7 +109,7 @@ info "preparing electrum-locale."
 )
 
 
-info "installing electrum-nmc and its dependencies."
+info "installing electrum-ptc and its dependencies."
 mkdir -p "$CACHEDIR/pip_cache"
 "$python" -m pip install --cache-dir "$CACHEDIR/pip_cache" -r "$CONTRIB/deterministic-build/requirements.txt"
 "$python" -m pip install --cache-dir "$CACHEDIR/pip_cache" -r "$CONTRIB/deterministic-build/requirements-binaries.txt"
@@ -122,8 +122,8 @@ cp "/usr/lib/libzbar.so.0" "$APPDIR/usr/lib/libzbar.so.0"
 
 
 info "desktop integration."
-cp "$PROJECT_ROOT/electrum-nmc.desktop" "$APPDIR/electrum-nmc.desktop"
-cp "$PROJECT_ROOT/electrum_nmc/gui/icons/electrum_nmc.png" "$APPDIR/electrum_nmc.png"
+cp "$PROJECT_ROOT/electrum-ptc.desktop" "$APPDIR/electrum-ptc.desktop"
+cp "$PROJECT_ROOT/electrum_ptc/gui/icons/electrum_ptc.png" "$APPDIR/electrum_ptc.png"
 
 
 # add launcher
